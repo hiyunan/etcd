@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-BINARYDIR=${BINARYDIR:-.}
+BINARYDIR=${BINARYDIR:-../bin/}
 BUILDDIR=${BUILDDIR:-.}
-
+docker run -v `pwd`/../:/opt/etcd -i -t golang:1.4.2 /bin/bash -c "cd /opt/etcd && ./build"
 IMAGEDIR=${BUILDDIR}/image-docker
 
 mkdir -p ${IMAGEDIR}
